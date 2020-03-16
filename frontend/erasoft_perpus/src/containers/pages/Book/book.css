@@ -1,0 +1,31 @@
+h1 {
+  padding: 0px;
+}
+
+.containerBook {
+  background-color: #FFF;
+  padding: 20px;
+  padding-top: 30px;
+  border: 1px solid #bfbfbf;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25);
+  min-height: 500px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.containerContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 430px;
+}
+
+.spinnerBook {
+  width: 5rem;
+  height: 5rem
+}
+
+.bookImg {
+  width: 70px;
+  height: 90px;
+}
