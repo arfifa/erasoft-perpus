@@ -16,7 +16,7 @@ router.get("/", BookController.bookShow)
 router.get("/:book_id", BookController.bookById)
 router.post("/insert", uploadImageBook, BookController.insertBook)
 router.put("/:book_id/update", uploadImageBook, BookController.updateBook)
-router.delete("/:book_id/delete", BookController.deleteBook)
+router.delete("/:book_id/:image/delete", BookController.deleteBook)
 
 
 module.exports = router;

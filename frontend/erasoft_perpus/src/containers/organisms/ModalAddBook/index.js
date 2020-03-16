@@ -59,7 +59,7 @@ class ModalAddBook extends Component {
       <div>
         <Button color="primary" className="btnAddBook" onClick={this.toggle}> <FaPlus />{buttonLabel}</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={className} size='lg'>
-          <ModalHeader toggle={this.toggle}>Add New Book</ModalHeader>
+          <ModalHeader toggle={this.toggle}>ADD NEW BOOK</ModalHeader>
           <ModalBody>
             <Form>
               <FormGroup>
@@ -70,6 +70,12 @@ class ModalAddBook extends Component {
                   <option value={1}>Sains</option>
                   <option value={2}>Hobby</option>
                   <option value={3}>Komputer</option>
+                  <option value={4}>Komunikasi</option>
+                  <option value={5}>Hukum</option>
+                  <option value={6}>Agama</option>
+                  <option value={7}>Populer</option>
+                  <option value={8}>Bahasa</option>
+                  <option value={9}>Komik</option>
                 </Input>
               </FormGroup>
               <FormGroup>

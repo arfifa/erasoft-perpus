@@ -3,6 +3,7 @@ const initialState = {
   isError: false,
   isSuccess: false,
   bookData: {},
+  bookById: {},
   msgError: ''
 }
 
@@ -30,7 +31,29 @@ const book = (state = initialState, action) => {
         bookData: action.payload.data,
         isError: false
       }
+    case 'GET_BOOK_BY_ID':
+      return {
+        ...state,
+        isLoading: action.isLoading,
+        isSuccess: action.isSuccess,
+        bookById: action.payload.data,
+        isError: false
+      }
     case 'POST_BOOK':
+      return {
+        ...state,
+        isLoading: action.isLoading,
+        isSuccess: action.isSuccess,
+        isError: false
+      }
+    case 'UPDATE_BOOK':
+      return {
+        ...state,
+        isLoading: action.isLoading,
+        isSuccess: action.isSuccess,
+        isError: false
+      }
+    case 'DEL_BOOK':
       return {
         ...state,
         isLoading: action.isLoading,

@@ -27,6 +27,29 @@ export const getBook = () => (dispatch) => {
   )
 }
 
+export const getBookByid = (book_id) => (dispatch) => {
+  dispatch({ type: 'CHANGE_LOADING', isLoading: true })
+  return (
+    axios.get(url.concat(`/${book_id}`))
+      .then(res => {
+        dispatch({
+          type: 'GET_BOOK_BY_ID',
+          payload: res,
+          isLoading: false,
+          isSuccess: true,
+        })
+      })
+      .catch(error => {
+        dispatch({
+          type: 'CHANGE_ERROR',
+          isLoading: false,
+          isError: true,
+          msgError: error.message
+        })
+      })
+  )
+}
+
 export const postBook = (data, config) => (dispatch) => {
   dispatch({ type: 'CHANGE_LOADING', isLoading: true })
   return (
@@ -42,6 +65,51 @@ export const postBook = (data, config) => (dispatch) => {
         dispatch({
           type: 'CHANGE_ERROR',
           error: error,
+          isLoading: false,
+          isError: true,
+          msgError: error.message
+        })
+      })
+  )
+}
+
+export const updateBook = (data, book_id, config) => (dispatch) => {
+  dispatch({ type: 'CHANGE_LOADING', isLoading: true })
+  return (
+    axios.put(url.concat(`/${book_id}/update`), data, config)
+      .then(res => {
+        dispatch({
+          type: 'UPDATE_BOOK',
+          isLoading: false,
+          isSuccess: true
+        })
+      })
+      .catch(error => {
+        dispatch({
+          type: 'CHANGE_ERROR',
+          error: error,
+          isLoading: false,
+          isError: true,
+          msgError: error.message
+        })
+      })
+  )
+}
+
+export const delBook = (book_id, image) => (dispatch) => {
+  dispatch({ type: 'CHANGE_LOADING', isLoading: true })
+  return (
+    axios.delete(url.concat(`/${book_id}/${image}/delete`))
+      .then(res => {
+        dispatch({
+          type: 'DEL_BOOK',
+          isLoading: false,
+          isSuccess: true,
+        })
+      })
+      .catch(error => {
+        dispatch({
+          type: 'CHANGE_ERROR',
           isLoading: false,
           isError: true,
           msgError: error.message
