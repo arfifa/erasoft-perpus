@@ -1,16 +1,16 @@
 import axios from 'axios'
 import { APP_URL } from '../../../config/Api'
-// import qs from 'qs'
+import qs from 'qs'
 
-const url = APP_URL.concat('book')
+const url = APP_URL.concat('borrowed')
 
-export const getBook = () => (dispatch) => {
+export const getBorrowed = () => (dispatch) => {
   dispatch({ type: 'CHANGE_LOADING', isLoading: true })
   return (
     axios.get(url)
       .then(res => {
         dispatch({
-          type: 'GET_BOOK',
+          type: 'GET_BORROWED',
           payload: res,
           isLoading: false,
           isSuccess: true,
@@ -27,36 +27,13 @@ export const getBook = () => (dispatch) => {
   )
 }
 
-export const getBookByid = (book_id) => (dispatch) => {
+export const postBorrowed = (data) => (dispatch) => {
   dispatch({ type: 'CHANGE_LOADING', isLoading: true })
   return (
-    axios.get(url.concat(`/${book_id}`))
+    axios.post(url.concat(`/insert`), qs.stringify(data))
       .then(res => {
         dispatch({
-          type: 'GET_BOOK_BY_ID',
-          payload: res,
-          isLoading: false,
-          isSuccess: true,
-        })
-      })
-      .catch(error => {
-        dispatch({
-          type: 'CHANGE_ERROR',
-          isLoading: false,
-          isError: true,
-          msgError: error.message
-        })
-      })
-  )
-}
-
-export const postBook = (data, config) => (dispatch) => {
-  dispatch({ type: 'CHANGE_LOADING', isLoading: true })
-  return (
-    axios.post(url.concat(`/insert`), data, config)
-      .then(res => {
-        dispatch({
-          type: 'POST_BOOK',
+          type: 'POST_BORROWED',
           isLoading: false,
           isSuccess: true
         })
@@ -72,13 +49,13 @@ export const postBook = (data, config) => (dispatch) => {
   )
 }
 
-export const updateBook = (data, book_id, config) => (dispatch) => {
+export const updateBorrowed = (data, borrowedId) => (dispatch) => {
   dispatch({ type: 'CHANGE_LOADING', isLoading: true })
   return (
-    axios.put(url.concat(`/${book_id}/update`), data, config)
+    axios.put(url.concat(`/${borrowedId}/update`), data)
       .then(res => {
         dispatch({
-          type: 'UPDATE_BOOK',
+          type: 'UPDATE_BORROWED',
           isLoading: false,
           isSuccess: true
         })
@@ -95,13 +72,13 @@ export const updateBook = (data, book_id, config) => (dispatch) => {
   )
 }
 
-export const delBook = (book_id, image) => (dispatch) => {
+export const delBorrowed = (borrowed_id) => (dispatch) => {
   dispatch({ type: 'CHANGE_LOADING', isLoading: true })
   return (
-    axios.delete(url.concat(`/${book_id}/${image}/delete`))
+    axios.delete(url.concat(`/${borrowed_id}/delete`))
       .then(res => {
         dispatch({
-          type: 'DEL_BOOK',
+          type: 'DEL_BORROWED',
           isLoading: false,
           isSuccess: true,
         })

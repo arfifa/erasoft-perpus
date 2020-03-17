@@ -5,7 +5,8 @@ const express = require('express'),
   bodyParser = require('body-parser');
 
 const book = require('./src/routes/BookRoute'),
-  member = require('./src/routes/MemberRoute.js');
+  member = require('./src/routes/MemberRoute.js'),
+  borrowed = require('./src/routes/BorrowedRoute.js');
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -15,6 +16,7 @@ app.use(cors())
 
 app.use('/book', book)
 app.use('/member', member)
+app.use('/borrowed', borrowed)
 
 const port = process.env.APP_PORT || 3000;
 

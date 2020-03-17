@@ -1,0 +1,9 @@
+.btnAddBorrowed {
+  margin-bottom: 20px;
+}
+
+.btnAddBorrowed:hover {
+  cursor: pointer;
+  background-color: rgb(25, 90, 182);
+  border-color: rgb(34, 126, 255);
+}

@@ -20,7 +20,7 @@ class Member extends Component {
     return (
       swal({
         title: "Are you sure?",
-        text: "Once deleted, you will not be able to recover this anggota!",
+        text: "Once deleted, you will not be able to recover this member!",
         icon: "warning",
         buttons: true,
         dangerMode: true,
