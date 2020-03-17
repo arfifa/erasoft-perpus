@@ -51,7 +51,7 @@ class Book extends Component {
         }
         {isSuccess && bookData.success &&
           <>
-            <h4>book data</h4><hr />
+            <h4>Book Data</h4><hr />
             <ModalAddBook buttonLabel="New Book" />
             <Table bordered responsive>
               <thead>
@@ -99,6 +99,7 @@ class Book extends Component {
           bookData.success === false &&
           <div className="containerContent">
             <Alert color="danger">
+              <ModalAddBook buttonLabel="New Book" />
               {bookData.msg}
             </Alert>
           </div>

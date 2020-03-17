@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { APP_URL } from '../../../config/Api'
-import qs from 'qs'
+// import qs from 'qs'
 
 const url = APP_URL.concat('book')
 

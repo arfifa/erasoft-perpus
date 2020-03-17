@@ -1,5 +1,6 @@
 const mysql = require('../dbconfig');
 const member = require('../model/MemberModel');
+const bcrypt = require('bcryptjs');
 
 exports.memberShow = (req, res) => {
   mysql.execute(member.members, [], (err, result, field) => {
@@ -35,7 +36,8 @@ exports.memberById = (req, res) => {
 
 exports.insertMember = (req, res) => {
   const { username, nama_anggota, gender, no_telp, alamat, email, password } = req.body
-  mysql.execute(member.insert_member, [username, nama_anggota, gender, no_telp, alamat, email, password], (err, result, field) => {
+  let enc_pass = bcrypt.hashSync(password)
+  mysql.execute(member.insert_member, [username, nama_anggota, gender, no_telp, alamat, email, enc_pass], (err, result, field) => {
     if (err === null) {
       res.send({
         success: true,

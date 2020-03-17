@@ -58,7 +58,7 @@ class ModalEditBook extends Component {
     let { bookId } = this.props
     this.setState({ modal: !this.state.modal })
     await this.props.getBookByid(bookId)
-    if (this.props.book.bookById.result[0]) {
+    if (this.props.book.bookById.result[0] !== undefined) {
       this.setState({
         ...this.state,
         bookData: this.props.book.bookById.result[0]
@@ -172,7 +172,7 @@ class ModalEditBook extends Component {
                 <FormText color="muted">
                   Update your image book.
                   <img src={`${APP_URL_IMAGE_BOOK}${gambar}`}
-                    style={styles.bookImage} />
+                    style={styles.bookImage} alt="New Image" />
                 </FormText>
               </FormGroup>
             </Form>
