@@ -8,7 +8,7 @@
 <a href="https://github.com/arfifa/erasoft-perpust/blob/master/LICENSE"></a>
 </p>
 
-IceCreamO is an simple libary app.
+Erasoft-perpus is an simple libary app.
 
 ## Screenshots
 
