@@ -4,7 +4,7 @@
 <a href="#"><img src="https://img.shields.io/badge/npm-6.13.4-brightgreen.svg?style=flat-square" alt="npm version">
 </a>
 <a href="#"><img src="https://img.shields.io/badge/node.js-12.10.0-blue.svg?style=flat-square" alt="node.js version"></a>
-<a href="#"><img src="https://img.shields.io/badge/react_native-0.61-green.svg?style=flat-square" alt="react version"></a>
+<a href="#"><img src="https://img.shields.io/badge/react_js-16.12.0-green.svg?style=flat-square" alt="react version"></a>
 <a href="https://github.com/arfifa/erasoft-perpust/blob/master/LICENSE"></a>
 </p>
 
